@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:08:40 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/05/31 17:01:58 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:27:01 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,28 @@
 typedef struct s_ps_list
 {
 	int 				n_value;
-	struct s_ps_list	*next;
+	struct s_ps_list	*target;
+	struct s_ps_list    *next;
 }	t_ps_list;
 
 long	ft_atol(const char *str);
 int		check_errors(char **argv);
-void	create_list(char **argv, t_ps_list **a);
-void	rotate(t_ps_list **stack);
-void    swap(t_ps_list **stack);
-void	sort(t_ps_list **a, t_ps_list **b, int args);
-int		already_sorted(t_ps_list *a);
-void	rev_rotate(t_ps_list **stack);
+void	simple_sort(t_ps_list **a);
+
+t_ps_list	*ft_lstnew_ps(int n);
+t_ps_list	*ft_lstlast_ps(t_ps_list *lst);
+void	ft_lstadd_back_ps(t_ps_list **lst, t_ps_list *new_node);
+t_ps_list	*ft_second_to_last(t_ps_list *lst);
+int	ft_lstsize_ps(t_ps_list *lst);
+
+void	sa(t_ps_list **stack);
+void	sb(t_ps_list **stack);
+void    ss(t_ps_list **a, t_ps_list **b);
+void	ra(t_ps_list **stack);
+void	rb(t_ps_list **stack);
+void	rr(t_ps_list **a, t_ps_list **b);
+void	rra(t_ps_list **stack);
+void	rrb(t_ps_list **stack);
+void	rrr(t_ps_list **a, t_ps_list **b);
 
 #endif

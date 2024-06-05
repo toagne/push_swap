@@ -6,12 +6,12 @@
 #    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 09:17:47 by mpellegr          #+#    #+#              #
-#    Updated: 2024/05/31 16:33:51 by mpellegr         ###   ########.fr        #
+#    Updated: 2024/06/05 10:10:18 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = test_with_ll.c ft_atol.c check_errors.c create_list.c sort.c \
-		  swap.c rotate.c already_sorted.c rev_rotate.c
+SOURCES = main.c ft_atol.c check_errors.c utils.c simple_sort.c \
+		  swap.c rotate.c rev_rotate.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

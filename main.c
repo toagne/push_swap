@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-char    **split_for_argc_2(char **str,char **new_str, int argc)
+static char    **split_for_argc_2(char **str,char **new_str, int argc)
 {
     int     c;  
     char    **temp;
@@ -13,7 +13,7 @@ char    **split_for_argc_2(char **str,char **new_str, int argc)
         temp = ft_split(str[1], ' ');
         while (temp[c])
             c++;
-        new_str = (char **)malloc(sizeof(char *) * (c + 1));
+        new_str = (char **)malloc(sizeof(char *) * (c + 2));
         new_str[0] = NULL;
         new_str[c + 1] = NULL;
         while (c--)
@@ -23,6 +23,29 @@ char    **split_for_argc_2(char **str,char **new_str, int argc)
         new_str = str;
     free(temp);
     return (new_str);
+}
+
+static int	already_sorted(t_ps_list *a)
+{
+	while (a->next)
+	{
+		if (a->n_value > a->next->n_value)
+			return(0);
+		a = a->next;
+	}
+	return (1);
+}
+
+static void	create_list(char **argv, t_ps_list **a)
+{
+	t_ps_list	*new_lst;
+
+	while (*argv)
+	{
+		new_lst = ft_lstnew_ps(ft_atoi(*argv));
+		ft_lstadd_back_ps(a, new_lst);
+		argv++;
+	}
 }
 
 int main(int argc, char **argv)
@@ -51,14 +74,15 @@ int main(int argc, char **argv)
 		temp = temp->next;
 	}
 	printf("\n");
-	if (already_sorted(stack_a))
+	if (!(already_sorted(stack_a)))
 	{
-		free(stack_a);
-		free(stack_b);
-		return (1);
+		if (ft_lstsize_ps(stack_a) == 2)
+			sa(&stack_a);
+		else if (ft_lstsize_ps(stack_a) == 3)
+			simple_sort(&stack_a);
+//		else
+//			real_sort(&stack_a, &stack_b);
 	}
-	else
-		sort(&stack_a, &stack_b, argc-1);
 	while (stack_a)
 	{
 		printf("%d ", stack_a->n_value);

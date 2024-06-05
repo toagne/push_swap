@@ -6,13 +6,13 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:28:06 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/05/31 16:44:09 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/05 10:03:19 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isnum(char *str)
+static int	ft_isnum(char *str)
 {
 	int	c;
 
@@ -28,7 +28,7 @@ int	ft_isnum(char *str)
 	return (1);
 }
 
-int	ft_isdup(long n, char**argv, int c)
+static int	ft_isdup(long n, char**argv, int c)
 {
 	int		c1;
 	long	n1;
@@ -48,13 +48,8 @@ int	check_errors(char **argv)
 {
 	long	n;
 	int		c;
-//	char	**new_argv;
 
 	c = 1;
-//	if (argc == 2)
-//		new_argv = ft_split(argv[1], ' ');
-//	else
-//		new_argv == argv;
 	while (argv[c])
 	{
 		n = ft_atol(argv[c]);
@@ -68,15 +63,3 @@ int	check_errors(char **argv)
 	}
 	return (1);
 }
-/*
-int main(int argc, char **argv)
-{
-	if (argc < 2)
-		return (-1);
-	if (!(check_errors(argv)))
-	{
-		ft_putendl_fd("error", 2);
-		return (-1);
-	}
-}
-*/
