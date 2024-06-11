@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_list.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 15:46:37 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/05 10:00:34 by mpellegr         ###   ########.fr       */
+/*   Created: 2024/06/04 11:04:03 by mpellegr          #+#    #+#             */
+/*   Updated: 2024/06/10 16:05:59 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 t_ps_list	*ft_lstnew_ps(int n)
 {
@@ -49,14 +48,28 @@ void	ft_lstadd_back_ps(t_ps_list **lst, t_ps_list *new_node)
 	}
 }
 
-void	create_list(char **argv, t_ps_list **a)
+t_ps_list	*ft_second_to_last(t_ps_list *lst)
 {
-	t_ps_list	*new_lst;
+	t_ps_list	*temp;
 
-	while (*argv)
+	if (!lst)
+		return (NULL);
+	while (lst->next->next != NULL)
+		lst = lst->next;
+	temp = ft_lstlast_ps(lst);
+	lst->next = NULL;
+	return (temp);
+}
+
+int	ft_lstsize_ps(t_ps_list *lst)
+{
+	int	n;
+
+	n = 0;
+	while (lst)
 	{
-		new_lst = ft_lstnew_ps(ft_atoi(*argv));
-		ft_lstadd_back_ps(a, new_lst);
-		argv++;
+		lst = lst->next;
+		n++;
 	}
+	return (n);
 }

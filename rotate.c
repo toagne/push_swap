@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/10 14:38:49 by mpellegr          #+#    #+#             */
+/*   Updated: 2024/06/10 14:39:26 by mpellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	rotate(t_ps_list **stack)
@@ -24,7 +36,7 @@ void	rb(t_ps_list **stack)
 
 void	rr(t_ps_list **a, t_ps_list **b)
 {
-    rotate(a);
+	rotate(a);
 	rotate(b);
-    ft_putendl_fd("rr", 1);
+	ft_putendl_fd("rr", 1);
 }

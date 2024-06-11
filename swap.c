@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/10 14:39:33 by mpellegr          #+#    #+#             */
+/*   Updated: 2024/06/10 14:40:32 by mpellegr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void swap(t_ps_list **a)
+static void	swap(t_ps_list **a)
 {
 	t_ps_list	*temp;
 
@@ -15,7 +27,7 @@ static void swap(t_ps_list **a)
 void	sa(t_ps_list **stack)
 {
 	swap(stack);
-	ft_putendl_fd("sa", 1); 
+	ft_putendl_fd("sa", 1);
 }
 
 void	sb(t_ps_list **stack)
@@ -24,9 +36,9 @@ void	sb(t_ps_list **stack)
 	ft_putendl_fd("sb", 1);
 }
 
-void    ss(t_ps_list **a, t_ps_list **b)
+void	ss(t_ps_list **a, t_ps_list **b)
 {
-    swap(a);
+	swap(a);
 	swap(b);
-    ft_putendl_fd("ss", 1);
+	ft_putendl_fd("ss", 1);
 }

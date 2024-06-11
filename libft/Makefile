@@ -6,7 +6,7 @@
 #    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 09:17:47 by mpellegr          #+#    #+#              #
-#    Updated: 2024/05/07 10:29:05 by mpellegr         ###   ########.fr        #
+#    Updated: 2024/06/09 08:56:30 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
 NAME = libft.a
 
-CC = cc
+CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 

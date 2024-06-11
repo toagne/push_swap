@@ -6,11 +6,41 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:28:06 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/05 10:03:19 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/10 15:46:02 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stack(t_ps_list **stack)
+{
+	t_ps_list	*temp_stack;
+	t_ps_list	*temp;
+
+	if (!stack)
+		return ;
+	temp_stack = *stack;
+	while (temp_stack)
+	{
+		temp = temp_stack->next;
+		free (temp_stack);
+		temp_stack = temp;
+	}
+	*stack = NULL;
+}
+
+void	free_argv(char **str)
+{
+	int	c;
+
+	c = 0;
+	while (str[c])
+	{
+		free(str[c]);
+		c++;
+	}
+	free(str);
+}
 
 static int	ft_isnum(char *str)
 {
@@ -19,6 +49,8 @@ static int	ft_isnum(char *str)
 	c = 0;
 	if (str[c] == '-')
 		c++;
+	if (str[c] == '\0')
+		return (0);
 	while (str[c])
 	{
 		if (!(ft_isdigit(str[c])))
