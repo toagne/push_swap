@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:44:13 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/11 16:34:14 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:11:47 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	simple_sort(t_ps_list **a)
 	if ((*a)->n_value > (*a)->next->n_value)
 		sa(a);
 }
-/*
+
 static void	find_closest_smaller(t_ps_list *a, t_ps_list *b)
 {
 	long		min;
@@ -69,34 +69,24 @@ static void	find_closest_smaller(t_ps_list *a, t_ps_list *b)
 		a = a->next;
 	}
 }
-*/
+
 static void	real_sort(t_ps_list **stack_a, t_ps_list **stack_b)
 {
-	int	args_a;
+	int			args_a;
 	t_ps_list	*smallest;
-//	int	args_b;
+	int			args_b;
 
 	args_a = ft_lstsize_ps(*stack_a);
-//	args_b = 0;
-//	while (args_b < 2 && args_a > 3)
-//	{
-//		pb(stack_b, stack_a);
-//		args_b++;
-//		args_a--;
-//	}
-//	while (args_a > 3)
-//	{
-//		set_index(*stack_a, *stack_b);
-//		find_closest_smaller(*stack_a, *stack_b);
-//		find_cost(*stack_b, *stack_a);
-//		args_b = ft_lstsize_ps(*stack_b);
-//		move_cheapest_a_to_b(stack_a, stack_b, args_b);
-//		args_a--;
-//	}
-	while (args_a != 3)
-	{
+	args_b = 0;
+	while (args_b++ < 2 && args_a-- > 3 && !already_sorted(*stack_a))
 		pb(stack_b, stack_a);
-		args_a--;
+	while (args_a-- > 3 && !already_sorted(*stack_a))
+	{
+		set_index(*stack_a, *stack_b);
+		find_closest_smaller(*stack_a, *stack_b);
+		find_cost(*stack_b, *stack_a);
+		args_b = ft_lstsize_ps(*stack_b);
+		move_cheapest_a_to_b(stack_a, stack_b, args_b);
 	}
 	simple_sort(stack_a);
 	while (*stack_b)
@@ -107,14 +97,6 @@ static void	real_sort(t_ps_list **stack_a, t_ps_list **stack_b)
 	}
 	args_a = ft_lstsize_ps(*stack_a);
 	set_index(*stack_a, NULL);
-//	while (*stack_a != find_smallest(*stack_a))
-//	{
-//		set_index(*stack_a, NULL);
-//		if ((*stack_a)->index <= args_a / 2)
-//			ra(stack_a);
-//		else
-//			rra(stack_a);
-//	}
 	smallest = find_smallest(*stack_a);
 	if (smallest->index <= args_a / 2)
 	{

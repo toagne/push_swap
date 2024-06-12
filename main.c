@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:30:19 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/11 16:34:18 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:12:20 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc < 2 || argv[1][0] == '\0')
-		return (0);
+	if (argc < 2)
+		return (-1);
+	if (argv[1][0] == '\0')
+	{
+		write (2, "Error\n", 6);
+		exit (-1);
+	}
 	else if (argc == 2)
 		argv = split_for_argc_2(argv);
 	create_list(argv, &stack_a, argc);

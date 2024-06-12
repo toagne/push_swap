@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:08:40 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/11 16:34:36 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:57:49 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		create_list(char **argv, t_ps_list **a, int argc);
 
 int			check_errors(char **argv);
 void		move_cheapest(t_ps_list **a, t_ps_list **b, int n_a);
-//void		move_cheapest_a_to_b(t_ps_list **a, t_ps_list **b, int n_b);
+void		move_cheapest_a_to_b(t_ps_list **a, t_ps_list **b, int n_b);
 void		populate_list(t_ps_list *a, t_ps_list *b);
 void		set_index(t_ps_list *a, t_ps_list *b);
 void		free_stack(t_ps_list **stack);
