@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   bonus_rev_rotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 14:38:49 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/18 10:59:43 by mpellegr         ###   ########.fr       */
+/*   Created: 2024/06/10 14:38:17 by mpellegr          #+#    #+#             */
+/*   Updated: 2024/06/20 14:16:24 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "checker.h"
 
-static void	rotate(t_ps_list **stack)
+static void	rev_rotate(t_ps_list **stack)
 {
 	t_ps_list	*temp;
 
 	temp = *stack;
-	*stack = (*stack)->next;
-	temp->next = NULL;
-	ft_lstadd_back_ps(stack, temp);
+	*stack = ft_second_to_last(*stack);
+	(*stack)->next = temp;
 }
 
-void	checker_ra(t_ps_list **stack)
+void	bonus_rra(t_ps_list **stack)
 {
-	rotate(stack);
-//	ft_putendl_fd("ra", 1);
+	rev_rotate(stack);
 }
 
-void	checker_rb(t_ps_list **stack)
+void	bonus_rrb(t_ps_list **stack)
 {
-	rotate(stack);
-//	ft_putendl_fd("rb", 1);
+	rev_rotate(stack);
 }
 
-void	checker_rr(t_ps_list **a, t_ps_list **b)
+void	bonus_rrr(t_ps_list **a, t_ps_list **b)
 {
-	rotate(a);
-	rotate(b);
-//	ft_putendl_fd("rr", 1);
+	rev_rotate(a);
+	rev_rotate(b);
 }

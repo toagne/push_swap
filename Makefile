@@ -6,16 +6,16 @@
 #    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 09:17:47 by mpellegr          #+#    #+#              #
-#    Updated: 2024/06/18 11:48:04 by mpellegr         ###   ########.fr        #
+#    Updated: 2024/06/20 15:13:00 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = check_errors.c main.c move_cheapest.c populate_list.c \
+SOURCES = check_errors.c find_target.c main.c move_cheapest.c populate_list.c \
 		  push_swap.c push.c rev_rotate.c rotate.c swap.c t_ps_list.c utils.c
 
-BONUS_SOURCES = check_errors.c checker_push.c checker_rev_rotate.c \
-				checker_rotate.c checker_swap.c get_next_line.c  \
-				get_next_line_utils.c main_bonus.c t_ps_list.c utils.c
+BONUS_SOURCES = check_errors.c bonus_push.c bonus_rev_rotate.c \
+		bonus_rotate.c bonus_swap.c get_next_line.c  \
+		get_next_line_utils.c main_bonus.c t_ps_list.c utils.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -29,9 +29,9 @@ LIB = push_swap.a
 
 BONUS_LIB = checker.a
 
-CC = cc
+CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra
 
 AR = ar rcs
 
@@ -42,7 +42,7 @@ LIBFT = libft
 all: $(NAME)
 
 $(NAME) : $(LIB)
-	$(CC) $< -o $@
+	$(CC) -g $< -o $@
 
 $(LIB): $(OBJECTS)
 	make -C $(LIBFT)
@@ -57,7 +57,7 @@ $(BONUS_LIB): $(BONUS_OBJECTS)
 	$(AR) $(BONUS_LIB) $(BONUS_OBJECTS)
 
 .bonus: $(BONUS_LIB)
-	$(CC) $< -o $(BONUS_NAME)
+	$(CC) -g $< -o $(BONUS_NAME)
 	@touch .bonus;
 
 bonus: .bonus

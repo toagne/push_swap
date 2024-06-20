@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:28:06 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/18 11:44:34 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:45:11 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,8 @@ static int	ft_isnum(char *str)
 
 static int	ft_isdup(long n, char**argv, int c)
 {
-	int		c1;
 	long	n1;
 
-	c1 = c + 1;
 	while (argv[c])
 	{
 		n1 = ft_atoi(argv[c]);

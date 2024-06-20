@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   bonus_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 14:39:33 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/18 10:58:56 by mpellegr         ###   ########.fr       */
+/*   Created: 2024/06/10 14:37:01 by mpellegr          #+#    #+#             */
+/*   Updated: 2024/06/20 14:14:43 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "checker.h"
 
-static void	swap(t_ps_list **a)
+static void	push(t_ps_list **dest, t_ps_list **src)
 {
 	t_ps_list	*temp;
 
-	if (!a || (*a)->next == NULL)
+	if (!*src)
 		return ;
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = (*a)->next;
-	(*a)->next = temp;
+	if (*dest == NULL)
+	{
+		*dest = *src;
+		*src = (*src)->next;
+		(*dest)->next = NULL;
+	}
+	else
+	{
+		temp = *dest;
+		*dest = *src;
+		*src = (*src)->next;
+		(*dest)->next = temp;
+	}
 }
 
-void	checker_sa(t_ps_list **stack)
+void	bonus_pa(t_ps_list **a, t_ps_list **b)
 {
-	swap(stack);
-//	ft_putendl_fd("sa", 1);
+	push(a, b);
 }
 
-void	checker_sb(t_ps_list **stack)
+void	bonus_pb(t_ps_list **b, t_ps_list **a)
 {
-	swap(stack);
-//	ft_putendl_fd("sb", 1);
-}
-
-void	checker_ss(t_ps_list **a, t_ps_list **b)
-{
-	swap(a);
-	swap(b);
-//	ft_putendl_fd("ss", 1);
+	push(b, a);
 }

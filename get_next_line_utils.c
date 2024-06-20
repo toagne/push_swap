@@ -6,13 +6,13 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 10:11:45 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/17 17:26:34 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:38:16 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	my_ft_strlen(char *str)
+size_t	my_strlen(char *str)
 {
 	size_t	n;
 
@@ -79,7 +79,7 @@ char	*create_buffer(char *str1, char *str2)
 	}
 	if (!str2 || !str1)
 		return (NULL);
-	tot_len = my_ft_strlen(str1) + my_ft_strlen(str2);
+	tot_len = my_strlen(str1) + my_strlen(str2);
 	new_buffer = (char *)malloc(sizeof(char) * (tot_len + 1));
 	if (!new_buffer)
 	{

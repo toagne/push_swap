@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:34:00 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/11 16:34:21 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:23:43 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,51 +26,6 @@ void	set_index(t_ps_list *a, t_ps_list *b)
 	if (!b)
 		return ;
 	set_index(b, NULL);
-}
-
-t_ps_list	*find_smallest(t_ps_list *stack)
-{
-	t_ps_list	*smallest;
-	int			min;
-
-	min = INT_MAX;
-	while (stack)
-	{
-		if (min > stack->n_value)
-		{
-			min = stack->n_value;
-			smallest = stack;
-		}
-		stack = stack->next;
-	}
-	return (smallest);
-}
-
-static void	find_smallest_bigger(t_ps_list *a, t_ps_list *b)
-{
-	long		max;
-	t_ps_list	*temp;
-	t_ps_list	*target;
-
-	while (b)
-	{
-		max = LONG_MAX;
-		temp = a;
-		while (temp)
-		{
-			if (temp->n_value > b->n_value && max > temp->n_value)
-			{
-				max = temp->n_value;
-				target = temp;
-			}
-			temp = temp->next;
-		}
-		if (max == LONG_MAX)
-			b->target = find_smallest(a);
-		else
-			b->target = target;
-		b = b->next;
-	}
 }
 
 void	find_cost(t_ps_list *a, t_ps_list *b)
@@ -102,9 +57,12 @@ void	find_cost(t_ps_list *a, t_ps_list *b)
 	}
 }
 
-void	populate_list(t_ps_list *a, t_ps_list *b)
+void	populate_list(t_ps_list *a, t_ps_list *b, char c)
 {
 	set_index(a, b);
-	find_smallest_bigger(a, b);
-	find_cost(a, b);
+	find_target(a, b, c);
+	if (c == 'b')
+		find_cost(a, b);
+	else if (c == 'a')
+		find_cost(b, a);
 }

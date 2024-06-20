@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 10:14:59 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/17 17:24:10 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:31:30 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
 char	*ft_strchr_with_prot(const char *str, int c);
-size_t	my_ft_strlen(char *str);
+size_t	my_strlen(char *str);
 char	*create_buffer(char *buffer, char *fake_buffer);
 char	*n_f(char *str1, char *str2);
 char	*pop_bufer(char *new_str, char *s1, char *s2);

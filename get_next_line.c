@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 09:55:01 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/17 17:25:24 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:31:09 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static char	*cut_buffer(char *buffer)
 		buffer = NULL;
 		return (NULL);
 	}
-	new_buffer = (char *)malloc(sizeof(char) * (my_ft_strlen(buffer) - start) + 1);
+	new_buffer = (char *)malloc(sizeof(char) * (my_strlen(buffer) - start) + 1);
 	if (!new_buffer)
 	{
 		free(buffer);
