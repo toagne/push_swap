@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:28:02 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/05/28 14:22:38 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:53:16 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,15 +111,15 @@ char	**ft_split(char const *s, char c)
 
 int main(void)
 {
-	char *s = "5 4 8 6";
-	char c = ' ';
+	char *s = "a";
+	char c = 'a';
 	char **arr;
 	arr = ft_split(s, c);
 	int n = 0;
-	while (arr[n] != '\0')
+	while (*arr)
 	{
 		printf("%s\n", arr[n]);
-		n++;
+		arr++;
 	}
 
 }

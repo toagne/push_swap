@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:30:19 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/24 12:11:52 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:56:14 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (1);
-	if (argv[1][0] == '\0')
+	if (argv[1][0] == '\0' || argv[1][0] == ' ')
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);

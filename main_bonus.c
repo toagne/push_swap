@@ -6,7 +6,7 @@
 /*   By: mpellegr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 14:33:14 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/25 10:15:29 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:01:46 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	read_cmd(t_ps_list **a, t_ps_list **b)
 	}
 	if (!*a)
 	{
-		ft_putendl_fd("Error", 2);
+		ft_putendl_fd("KO", 2);
+		free_stack(b);
 		exit (1);
 	}
 	if (already_sorted(*a) && *b == NULL)
@@ -90,7 +91,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (1);
-	if (argv[1][0] == '\0')
+	if (argv[1][0] == '\0' || argv[1][0] == ' ')
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);
