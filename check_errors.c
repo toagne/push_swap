@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:28:06 by mpellegr          #+#    #+#             */
-/*   Updated: 2024/06/19 12:45:11 by mpellegr         ###   ########.fr       */
+/*   Updated: 2024/06/25 09:46:53 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ft_isnum(char *str)
 	int	c;
 
 	c = 0;
-	if (str[c] == '-')
+	if (str[c] == '-' || str[c] == '+')
 		c++;
 	if (str[c] == '\0')
 		return (0);
